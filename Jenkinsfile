@@ -26,7 +26,17 @@ pipeline{
                 }
             }
         }
+
+        stage("Build"){
+            steps{
+                sh 'mvn clean package'
+            }
+        }
     }
+
+
+
+    
     post{
         always{
             echo "========always========"
