@@ -25,6 +25,15 @@ pipeline{
             }
         }
 
+        stage("Source Compilation Analysis"){
+            steps{
+                sh 'rn owasp* || true'
+                sh 'wget https://raw.githubusercontent.com/Lrry18/webapp/main/owasp-dependency-check.sh'
+                sh 'chmod +x owasp-dependency-check.sh'
+                sh 'bash owasp-dependency-check.sh'
+            }
+        }
+
         stage("Build"){
             steps{
                 sh 'mvn clean package'
