@@ -28,7 +28,7 @@ pipeline{
             steps{
                 echo "========executing A========"
                 sshagent (credentials: ['deploy-dev']) {
-                sh "scp -o StrictHostKeyChecking=no target/*.war ubuntu@54.159.7.172:/home/ubuntu/prod/apache-tomcat-8.5.85/webapps/webapp.war"
+                sh "scp -o StrictHostKeyChecking=no target/*.war ubuntu@54.159.7.172:/prod/apache-tomcat-8.5.85/webapps/webapp.war"
                 }
             }
 
